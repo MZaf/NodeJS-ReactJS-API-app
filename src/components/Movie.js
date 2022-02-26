@@ -66,7 +66,7 @@ const Movie = observer(class extends Component {
 
                 </div>
                 <div className="rec-grid">
-                    <span className="title">Top 10 Movies/Rating D3 Stat page</span>
+                    <span className="title">Top 10 Movies/Rating D3 Stat page </span>
                     
                     <span className="title">Similar Movies</span>
                     {results ? results.slice(0, 6).map(({id, 
