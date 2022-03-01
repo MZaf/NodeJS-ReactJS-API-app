@@ -4,6 +4,7 @@ import {Switch, Route} from "react-router-dom"
 import Navigation from "./components/Navigation"
 import Home from "./components/Home"
 import Movie from "./components/Movie"
+import MovieStat from "./components/MoviesStatTop10"
 import "./styles/main.scss"
 import movieStore from "./store/movie"
 import actorStore from "./store/actor"
@@ -22,8 +23,8 @@ const App = observer(class extends Component {
   }
   componentDidMount() {
     
-    this.apiKey=process.env.REACT_APP_API
-    console.log(this.apiKey)
+    this.env_API_KEY=process.env.REACT_APP_API_KEY
+    console.log(this.env_API_KEY)
     console.log(process.env.REACT_APP_TITLE)
 
     console.log("Pop", this.props.store.popular)
@@ -42,7 +43,7 @@ const App = observer(class extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.setState({currentPage: 1})
-    fetch(`https://api.themoviedb.org/3/search/movie?api_key=${this.apiKey}&query=${this.state.searchTerm}`)
+    fetch(`https://api.themoviedb.org/3/search/movie?api_key=${this.env_API_KEY}&query=${this.state.searchTerm}`)
       .then(data => data.json())
       .then(data => {
         console.log(data);
@@ -111,6 +112,18 @@ const App = observer(class extends Component {
             <Movie id={i.id} 
             scrollTop={this.scrollTop}/>
             </Route>)}
+        </Switch>
+
+        <Switch>
+          {
+            // Routes for movies Stat
+          }
+          {!loaded ? null : 
+          <Route
+          path={`/movieStat`} >
+            <MovieStat  
+            scrollTop={this.scrollTop}/>
+          </Route>}
         </Switch>
 
         <Switch>

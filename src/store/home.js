@@ -1,4 +1,5 @@
 import {observable, action, decorate, runInAction} from "mobx"
+import {API_URL, API_KEY} from "../API";
 
 const html = document.querySelector('html')
 
@@ -22,7 +23,7 @@ class Home {
         })
 
         fetch(
-            `https://api.themoviedb.org/3/movie/popular?api_key=82dee22856e0d0ac5f767ec6fb845efc&language=en-US&page=${page}`
+            `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=${page}`
           )
             .then(res => res.json())
             .then(res => {
@@ -40,7 +41,7 @@ class Home {
           this.currentPage = 1;
         });
         fetch(
-          `https://api.themoviedb.org/3/search/movie?api_key=82dee22856e0d0ac5f767ec6fb845efc&language=en-US&query=${term}&page=${page}&include_adult=false`
+          `${API_URL}search/movie?api_key=${API_KEY}&language=en-US&query=${term}&page=${page}&include_adult=false`
         )
         .then(res => res.json())
         .then(res => {

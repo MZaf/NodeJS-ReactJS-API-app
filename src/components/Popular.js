@@ -45,11 +45,11 @@ const Popular = observer(class extends Component {
                     : <div className="loading">Loading...</div>
                 }
                 <div className="paginator">
-                <Pagination
-                total={popular.total_results}
-                pageSize={20}
-                onChange={changePage}
-                />
+                    <Pagination
+                        total={popular.total_results}
+                        pageSize={20}
+                        onChange={changePage}
+                    />
                 </div>
             </section>
         )

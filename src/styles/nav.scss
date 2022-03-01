@@ -5,14 +5,19 @@ header {
 }
 
 .menu-grid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // padding: 20px;
+    overflow:auto;
 
     .logo {
         display: flex;
         align-items: center;
         justify-content: center;
-        padding-left: 50px;
-        padding-top: 20px;
-        width: 100px;
+        // padding-left: 50px;
+        padding: 20px;
+        width: 150px;
 
         img {
             width: 100%;
@@ -20,8 +25,10 @@ header {
     }
 
     .nav-btn {
-        padding-top: 5px;
+        display: flex;
+        padding: 16px;
         text-align: center;
+        overflow: auto;
 
         .btn {
             list-style: none;
@@ -29,10 +36,10 @@ header {
             color: #01d277;
             font-weight: 700;
             font-size: 18px;
-            border: 1px solid #555;
-            border-radius: 2px;
-            background-color: #555;
-            padding: 7px;
+            // border: 1px solid #555;
+            // border-radius: 2px;
+            background-color: #333;
+            padding: 5px;
             transition: ease-in .2s;
             &:hover, &:focus {
                 cursor: pointer;
@@ -40,3 +47,80 @@ header {
         }
     }
 }
+
+.card {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    // padding: 20px;
+    min-width: 300px;
+    width: 300px;
+    border: 1px solid #e3e3e3;
+    
+    box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+    border: 1px solid rgba(var(--lightGrey), 1);
+    background-color: #777;
+    //background-color: #1f378f69;
+    overflow: auto;
+    cursor: pointer;
+
+    .filter {
+        width: 100%;
+        // border-top: 0px solid #eee;
+        padding: 14px 16px 16px 16px;
+        font-size: 1.5em;
+    }
+
+    .filter_panel {
+        min-width: 260px;
+        width: 260px;
+        border: 1px solid #e3e3e3;
+        //border-radius: var(--imageBorderRadius);
+        // border-top-left-radius: ;
+        // border-top-right-radius: ;
+        // border-bottom-right-radius: ;
+        // border-bottom-left-radius: ;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        overflow: hidden;
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
+    
+    .name {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        align-items: center;
+        padding: 14px 16px;
+        //margin-left: 20px;
+    }
+    .chevron-right {
+        transform: rotate(90deg);
+    }
+    
+    // .chevron-right {
+    //     background-image: url(./images/glyphicons-basic-224-chevron-right.svg);
+    //  }
+    .glyphicons_v2 {
+        position: relative;
+        top: 0;
+        left: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 1em;
+        min-height: 1em;
+        width: 1em;
+        height: 1em;
+        line-height: inherit;
+        background-position: center center;
+        background-repeat: no-repeat;
+        color: inherit;
+        box-sizing: border-box;
+     }
+ }
+
