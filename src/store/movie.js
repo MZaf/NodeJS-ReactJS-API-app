@@ -1,4 +1,4 @@
-import { observable, action, decorate, runInAction } from "mobx"
+import { observable, action, decorate, runInAction } from "mobx";
 import {API_URL, API_KEY} from "../API";
 
 const html = document.querySelector('html')

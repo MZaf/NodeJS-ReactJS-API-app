@@ -1,5 +1,5 @@
 import {observable, action, decorate, runInAction} from "mobx"
-import {API_URL, API_KEY} from "../API";
+import {API_URL, API_KEY, TOP_RATED_URL} from "../API";
 
 const html = document.querySelector('html')
 
@@ -12,6 +12,7 @@ let random = randomNumber(0, 20)
 
 class Home {
     popular = []
+    topRated = []
     loaded = false
     searchResults = []
     term = ""
@@ -35,6 +36,20 @@ class Home {
         });
     }
 
+    fetchTopRated () {
+      runInAction(() => {
+          this.loaded = false
+      })
+
+      fetch(`${TOP_RATED_URL}`)
+          .then(res => res.json())
+          .then(res => {
+            return (
+            this.setTopRated(res) 
+            )
+      });
+  }
+
     fetchSearch (term, page) {
         runInAction(() => {
           this.loaded = false;
@@ -54,6 +69,11 @@ class Home {
         this.popular = data;
         this.loaded = true;
     }
+
+    setToprated(data) {
+      this.toprated = data;
+      this.loaded = true;
+    }
     
     setSearch(data) {
         this.searchResults = data;
@@ -63,10 +83,12 @@ class Home {
 
 decorate(Home, {
     popular: observable,
+    topRated: observable,
     search: observable,
     currentPage: observable,
     term: observable,
     setPopular: action,
+    setToprated: action,
     setSearch: action,
     loaded: observable
 })

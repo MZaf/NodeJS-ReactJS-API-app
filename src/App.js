@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {API_URL, API_KEY } from './API';
 import {observer} from "mobx-react"
 import {Switch, Route} from "react-router-dom"
 import Navigation from "./components/Navigation"
@@ -23,9 +24,9 @@ const App = observer(class extends Component {
   }
   componentDidMount() {
     
-    this.env_API_KEY=process.env.REACT_APP_API_KEY
-    console.log(this.env_API_KEY)
-    console.log(process.env.REACT_APP_TITLE)
+    //this.env_API_KEY=process.env.REACT_APP_API_KEY
+    //console.log(this.env_API_KEY)
+    //console.log(process.env.REACT_APP_TITLE)
 
     console.log("Pop", this.props.store.popular)
     this.props.store.fetchPopular(this.props.store.currentPage)
@@ -43,7 +44,7 @@ const App = observer(class extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.setState({currentPage: 1})
-    fetch(`https://api.themoviedb.org/3/search/movie?api_key=${this.env_API_KEY}&query=${this.state.searchTerm}`)
+    fetch(`${API_URL}search/movie?api_key=${API_KEY}&query=${this.state.searchTerm}`)
       .then(data => data.json())
       .then(data => {
         console.log(data);
@@ -119,11 +120,11 @@ const App = observer(class extends Component {
             // Routes for movies Stat
           }
           {!loaded ? null : 
-          <Route
-          path={`/movieStat`} >
-            <MovieStat  
+            popular.results.map((i, id) => <Route
+          path={`/movieStat/`} key={i.id}>
+            <MovieStat key={i.id} id={i.id}
             scrollTop={this.scrollTop}/>
-          </Route>}
+          </Route>)}
         </Switch>
 
         <Switch>

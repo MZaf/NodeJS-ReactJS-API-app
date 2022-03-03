@@ -11,7 +11,7 @@ const Navigation = observer(({ clearSearch}) => {
         <div className="menu-grid">
             <img className="logo" src={logo} alt="TMDB" onClick={Home} />
             <div className="nav-btn">
-                <Link to="/" onClick={clearSearch} className="btn">Popular Movies</Link>
+                <Link to="/" onClick={clearSearch} className="btn">TopRated Movies</Link>
                 <Link to="/movieStat" onClick={clearSearch} className="btn">Movies Stat</Link>
                 <Link to="/" onClick={clearSearch} className="btn"> Back</Link>
             </div>
