@@ -37,14 +37,14 @@ class Chart1 extends Component {
       // Scale Bar Chart data max value in height  
       var yScale = d3.scaleLinear()
         .domain([0, d3.max(data_top10_vote_count)])
-        .range([0, height * 0.7]);
+        .range([0, height * 0.73]);
 
       var xAxis = d3.scaleLinear()
         .domain([0, data_top10_vote_count.length])
         .range([0, width-70]);
     
       var yAxis = d3.scaleLinear()
-        .domain([0, 10])
+        .domain([0, 10000])
         .range([height * 0.85 , 0]);
 
       // Add SVG bar rect for Bar Chart
@@ -105,7 +105,7 @@ class Chart1 extends Component {
         .enter()
         .append('g')
         .attr("color", "#000")
-        .attr('transform', 'translate(40, 20)')
+        .attr('transform', 'translate(55, 15)')
         .call(d3.axisLeft(yAxis))
 
       // Add D3 chart xAxis title below axisBottom
@@ -127,7 +127,7 @@ class Chart1 extends Component {
         .append('g')
         .attr("class", "y axis")
         .attr("color", "#ddd")
-        .attr("transform", "translate(20, 230 )")
+        .attr("transform", "translate(15, 230 )")
         .append("text")
         .text("Rated Count")
         .attr("transform", "rotate(-90)")

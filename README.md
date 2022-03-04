@@ -9,7 +9,7 @@ This web app pulls movies info from the TMDB API.
 
 ## Tools
 
-- React Js
+- React JS
 - Redux/MobX/recoil
 - React Router
 - SASS
