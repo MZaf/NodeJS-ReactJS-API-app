@@ -84,7 +84,7 @@ class Chart2 extends Component {
         .attr("width", 35) 
         .attr("height", (d, i) => yScale(d) )
         //.attr("fill", "green")
-        .attr("fill", (d, i) => d > 6 ? "#006600" : "#aa4400")
+        .attr("fill", (d, i) => d > 6.3 ? "#006600" : "#aa4400")
 
       // Add Rating labels above Chart Bars
       accessToRef.selectAll("svg")
