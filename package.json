@@ -1,5 +1,5 @@
 {
-  "name": "CARMA-movie-db",
+  "name": "ReactJS movie-db API app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
